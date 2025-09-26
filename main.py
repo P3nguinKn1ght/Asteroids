@@ -6,6 +6,7 @@ from asteroidfield import AsteroidField
 from circleshape import*
 from bullets import Shot
 
+
 def main():
     pygame.init()
     
@@ -29,6 +30,9 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
 
+    #ASSETS
+    background_image = pygame.image.load("background.png")
+
     #GAME LOOP
     while True:
         for event in pygame.event.get():
@@ -44,7 +48,7 @@ def main():
                     bullet.kill()
                     asteroid.split() 
 
-        screen.fill("black")
+        screen.blit(background_image, (0, 0))
         for thing in drawable:
             thing.draw(screen)
         pygame.display.flip()
